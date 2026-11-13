@@ -88,7 +88,9 @@ __caches__/
 frontend-v2.3/
 /icons/              # root-level scratch (not frontend/src-tauri/icons/)
 0.0.0.0/
-docs/
+.screenshots/
+.cargo/
+.venv/
 _verify_sync.py
 check_db.py
 dev-m2.log
@@ -96,4 +98,5 @@ extract_docx.py
 inject_test.py
 arch_v3.txt
 prd_v3.txt
-*.docx
+# NOTE: docs/ directory is tracked (product & architecture docs)
+# NOTE: *.docx inside docs/ is tracked (PRD & architecture spec)
