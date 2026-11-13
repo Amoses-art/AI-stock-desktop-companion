@@ -86,7 +86,7 @@ Thumbs.db
 # ---------- Local dev scratch ----------
 __caches__/
 frontend-v2.3/
-icons/
+/icons/              # root-level scratch (not frontend/src-tauri/icons/)
 0.0.0.0/
 docs/
 _verify_sync.py
