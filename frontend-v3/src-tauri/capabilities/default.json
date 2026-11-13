@@ -1,0 +1,10 @@
+{
+  "": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "股大师前端默认权限：全部核心权限 + 事件监听，覆盖全部四类窗口",
+  "windows": ["main", "panel", "chat", "bubble"],
+  "permissions": [
+    "core:default",
+    "core:event:default"
+  ]
+}

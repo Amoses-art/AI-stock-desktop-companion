@@ -1,0 +1,13 @@
+{
+  "_comment": "股大师 LLM 配置 — 支持热更新（修改后生效，无需重启）",
+  "base_url": "http://localhost:11434",
+  "model_name": "qwen2.5:7b",
+  "timeout_seconds": 15.0,
+  "temperature": 0.3,
+  "enable_zero_shot": true,
+  "enable_few_shot": true,
+  "enable_cot": true,
+  "few_shot_min_length": 15,
+  "cot_min_length": 35,
+  "health_cache_ttl_seconds": 30.0
+}

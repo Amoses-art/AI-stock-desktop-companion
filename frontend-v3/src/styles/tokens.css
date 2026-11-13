@@ -1,0 +1,80 @@
+/**
+ * 设计令牌：全局 CSS 变量
+ *
+ * 视觉语言对齐 UI 重设计 v2.0：深色底 + 青色主色 + 涨红跌绿。
+ * 组件禁止硬编码颜色，一律引用本表变量。
+ */
+:root {
+  /* 基础色板 */
+  --gd-bg: #0a0e17;            /* 全局深色底 */
+  --gd-bg-panel: rgba(18, 24, 38, 0.88);   /* 面板毛玻璃底 */
+  --gd-border: rgba(0, 212, 255, 0.18);   /* 面板描边辉光 */
+  --gd-text: #e8eef7;          /* 主文本 */
+  --gd-text-muted: #7a8699;    /* 次级文本 */
+
+  /* 品牌色 */
+  --gd-primary: #00d4ff;       /* 青色主色 */
+  --gd-primary-soft: rgba(0, 212, 255, 0.12);
+
+  /* 涨跌语义色（涨红跌绿，A股惯例） */
+  --gd-up: #ff4d5e;
+  --gd-down: #00c896;
+  --gd-flat: #7a8699;
+
+  /* 状态辉光（桌宠情绪滤镜） */
+  --glow-happy: drop-shadow(0 0 12px rgba(255, 193, 60, 0.55));
+  --glow-sad: brightness(0.85);
+  --glow-alert: drop-shadow(0 0 14px rgba(255, 77, 94, 0.65));
+  --glow-sleep: brightness(0.6) saturate(0.5);
+
+  /* 字体 */
+  --gd-font: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --gd-font-mono: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+
+  /* 圆角与阴影 */
+  --gd-radius: 12px;
+  --gd-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 1px var(--gd-border);
+
+  /* 动效 */
+  --gd-ease: cubic-bezier(0.33, 1, 0.68, 1);
+  --gd-dur-fast: 120ms;
+  --gd-dur-base: 240ms;
+}
+
+/* 无障碍：系统减动效偏好 */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --gd-dur-fast: 0ms;
+    --gd-dur-base: 0ms;
+  }
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--gd-text);
+  font-family: var(--gd-font);
+  overflow: hidden;
+  user-select: none;
+  height: 100%;
+}
+
+
+/* 全局滚动条（深色适配 — 修复 AI 对话/持仓列表右侧原生滚动条突兀感） */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
