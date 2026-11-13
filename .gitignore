@@ -1,90 +1,80 @@
 # ============================================================
-# 股大师 Gudashi - v0.7.0 根目录 .gitignore
+# AI-stock-desktop-companion / Gudashi v0.7.0
+# Root-level .gitignore
 # ============================================================
 
-# ---------- Rust / Tauri 编译产物 ----------
-__caches__/
+# ---------- Rust / Tauri ----------
 .cargo/
-frontend-v3/src-tauri/target/
-frontend-v3/src-tauri/gen/
+frontend/src-tauri/target/
+frontend/src-tauri/gen/
 
-# ---------- Python 虚拟环境 & 打包产物 ----------
-股大师后端v1.3_联调修复版/backend/.venv/
-股大师后端v1.3_联调修复版/backend/build*/
-股大师后端v1.3_联调修复版/backend/dist*/
-股大师后端v1.3_联调修复版/backend/__pycache__/
-股大师后端v1.3_联调修复版/backend/backend.exe
+# ---------- Python venv & PyInstaller build ----------
+backend/.venv/
+backend/build*/
+backend/dist*/
+backend/__pycache__/
+backend/backend.exe
+backend/*.spec.bak
 
-# ---------- Node 依赖 & 前端构建 ----------
-frontend-v3/node_modules/
-frontend-v3/dist/
+# ---------- Node ----------
+frontend/node_modules/
+frontend/dist/
 
-# ---------- PyInstaller 打包副本（内嵌到前端的独立后端） ----------
-frontend-v3/backend/
+# ---------- PyInstaller bundle embedded inside frontend ----------
+frontend/backend/
 
-# ---------- 运行时数据 ----------
+# ---------- Runtime data ----------
 *.db
 *.db-shm
 *.db-wal
 *.sqlite
 *.sqlite3
 
-# ---------- 调试 / 临时脚本 ----------
-股大师后端v1.3_联调修复版/backend/_bug_repro_reqs.jsonl
-股大师后端v1.3_联调修复版/backend/_final_patch.py
-股大师后端v1.3_联调修复版/backend/_fix_nlu.py
-股大师后端v1.3_联调修复版/backend/_patch_fixes.py
-股大师后端v1.3_联调修复版/backend/_repro_add.jsonl
-股大师后端v1.3_联调修复版/backend/_repro_req.jsonl
-股大师后端v1.3_联调修复版/backend/_reqs.txt
-股大师后端v1.3_联调修复版/backend/_test_bugs.txt
-股大师后端v1.3_联调修复版/backend/_test_config.req
-股大师后端v1.3_联调修复版/backend/_test_deployed.py
-股大师后端v1.3_联调修复版/backend/_test_repro.jsonl
-股大师后端v1.3_联调修复版/backend/_test_req.jsonl
-股大师后端v1.3_联调修复版/backend/_test_timeout.jsonl
-股大师后端v1.3_联调修复版/backend/_verify_fix2_reqs.jsonl
-股大师后端v1.3_联调修复版/backend/_verify_fix_reqs.jsonl
-股大师后端v1.3_联调修复版/backend/check_db.py
-股大师后端v1.3_联调修复版/backend/smoke_all.py
-股大师后端v1.3_联调修复版/backend/rpc_client.py
-股大师后端v1.3_联调修复版/backend/launcher.py
-股大师后端v1.3_联调修复版/backend/test_*.py
-股大师后端v1.3_联调修复版/backend/test_*.txt
-股大师后端v1.3_联调修复版/backend/req_test.txt
-股大师后端v1.3_联调修复版/backend/test_req_*.txt
-股大师后端v1.3_联调修复版/backend/backend.log
+# ---------- Debug / scratch scripts (not source) ----------
+backend/_*.py
+backend/_*.txt
+backend/_*.jsonl
+backend/_*.req
+backend/check_db.py
+backend/backend.log
+backend/launcher.py
+backend/rpc_client.py
+backend/rpc_debug.log
+backend/rpc_test.log
+backend/smoke_all.py
+backend/test_*.py
+backend/test_*.txt
+backend/req_test.txt
 
-# ---------- 源码目录中的临时备份 ----------
+# ---------- .bak / .broken / temporary files ----------
 *.bak
 *.bak2
 *.bak5
 *.broken
-股大师后端v1.3_联调修复版/backend/skills/analysis_engine/*.bak
-股大师后端v1.3_联调修复版/backend/rpc/server.py.bak
+*.orig
+*.tmp
 
-# ---------- Python 缓存 ----------
+# ---------- Python cache ----------
 __pycache__/
 *.pyc
 *.pyo
 
-# ---------- 二进制产物（所有 exe/dll/pyd/so） ----------
+# ---------- Binaries ----------
 *.exe
 *.dll
 *.pyd
 *.so
 *.dylib
-*.dylib.a
 *.a
 *.lib
 
-# ---------- venv 目录中的系统头文件 / 库 ----------
+# ---------- Local venv libs ----------
 **/Lib/
 **/Scripts/
 **/Include/
 **/share/
 
-# ---------- Windows 系统 / IDE 配置 ----------
+# ---------- OS / IDE ----------
 Thumbs.db
 .DS_Store
 .vscode/
@@ -93,7 +83,12 @@ Thumbs.db
 *.swp
 *.swo
 
-# ---------- 根目录零散调试文件 ----------
+# ---------- Local dev scratch ----------
+__caches__/
+frontend-v2.3/
+icons/
+0.0.0.0/
+docs/
 _verify_sync.py
 check_db.py
 dev-m2.log
@@ -101,14 +96,4 @@ extract_docx.py
 inject_test.py
 arch_v3.txt
 prd_v3.txt
-
-# ---------- 旧版 / 缓存目录 ----------
-frontend-v2.3/
-icons/
-0.0.0.0/
-docs/
-股大师 v3.0 技术架构方案.docx
-股大师 — 桌面级AI桌宠应用 产品需求方案（PRD）v3.0.docx
-
-# ---------- 日志 ----------
-*.log
+*.docx
